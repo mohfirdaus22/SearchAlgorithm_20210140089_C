@@ -43,7 +43,7 @@ namespace SearchAlgorithm
             {
                 //accept the number to be searched
                 Console.Write("\n Enter element want to you search : ");
-                int item =Convert.ToInt32(Console.ReadLine());
+                int item = Convert.ToInt32(Console.ReadLine());
 
                 //apply binary search
                 int lowerbound = 0;
@@ -59,12 +59,20 @@ namespace SearchAlgorithm
                     if (item > arr[mid])
                         lowerbound = mid + 1;
                     else
-                        upperbound = mid - 1;   
+                        upperbound = mid - 1;
                     mid = (lowerbound + upperbound) / 2;
                     ctr++;
                 }
+                if (item == arr[mid])
+                    Console.WriteLine("\n" + item.ToString() + "found at position " + (mid + 1).ToString());
+                else
+                    Console.WriteLine("\n" + item.ToString() + "not found in the array\n");
+                Console.WriteLine("\n Number of comparasion :" + ctr);
 
-            }
+                Console.Write("\n Continue Search (y/n) :");
+                ch = char.Parse(Console.ReadLine());
+
+            } while ((ch == 'y') || (ch == 'Y'));
         }
     }
 }
